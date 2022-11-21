@@ -1,8 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View, FlatList, Image, ListRenderItem } from 'react-native';
+import { StyleSheet, Text, View, FlatList, Image, TouchableOpacity } from 'react-native';
 import globoTickets, {GloboEvent} from './TicketDB';
 
-const Tickets = () => {
+interface TicketsProps {
+    navigation: any;
+}
+const Tickets = ({navigation}: TicketsProps) => {
 
     const ticketItem: any = (data: {index: number, item:GloboEvent}) => {
 
@@ -31,9 +34,16 @@ const Tickets = () => {
                     <Text style={styles.ticketshortdescription}>
                         {data.item.price}
                     </Text>
+                    <TouchableOpacity
+                    style={styles.button}
+                    onPress={ () => {
+                        navigation.navigate('Purchase', {ticketId: data.item.eventId});
+                    }}
+                    >
                     <Text style={styles.ticketbutton}>
                         GET TICKETS
                     </Text>
+                    </TouchableOpacity>
                 </View>
             </View>
         );
@@ -51,6 +61,7 @@ const Tickets = () => {
 }
 
 const styles = StyleSheet.create({
+    button:{},
     container: {
         paddingTop:15,
         paddingBottom: 15

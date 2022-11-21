@@ -5,6 +5,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Home, {HomeProps} from './Home';
 import Tickets from './Ticket';
+import Contact from './Contact';
+import TicketPurchase from './TicketPurchase';
 
 const Stack:any = createStackNavigator();
 function App() {
@@ -32,6 +34,20 @@ function App() {
           component={Tickets}
           options={{
             headerTitleAlign:'center'
+          }}/>
+           <Stack.Screen
+          name='Contact'
+          component={Contact}
+          options={{
+            headerTitleAlign:'center',
+            headerTitle: 'Contact Us'
+          }}/>
+          <Stack.Screen
+          name='Purchase'
+          component={TicketPurchase}
+          options={{
+            headerTitleAlign:'center',
+            headerTitle: 'Purchase Tickets'
           }}/>
         </Stack.Navigator>
       </NavigationContainer>

@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, Image, StyleSheet, Text } from 'react-native';
+import Menu from './Menu';
 
-interface HomeProps {
+export interface HomeProps {
     username: string;
 }
 
@@ -14,18 +15,35 @@ const Home = (props: HomeProps) => {
             />
             <Text style={styles.title}>Welcome to GloboTicket</Text>
             <Text style={styles.subtitle}>{props.username}</Text>
+            <Image
+                style={styles.heroimage}
+                source={require('../images/React_logo.png')}
+            />
             <View style={styles.textcontainer}>
                 <Text style={styles.content}>{introText}</Text>
+            </View>
+            <View style={styles.menu}>
+                <Menu />
             </View>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
+    menu:{
+        position:'absolute',
+        bottom: 10
+    },
+    heroimage:{
+        height: 170,
+        width:'100%'
+    },
     container:{
         flexDirection: 'column',
         alignItems:'center',
-        padding: 20
+        paddingTop: 20,
+        paddingBottom: 20,
+        flex: 1,
     },
     globologo: {
         height:100,
@@ -36,8 +54,7 @@ const styles = StyleSheet.create({
         paddingTop:5,
     },
     textcontainer:{
-        textAlign: 'center',
-        paddingTop:10,
+        padding:20,
     },
     content:{
         fontWeight: '300',

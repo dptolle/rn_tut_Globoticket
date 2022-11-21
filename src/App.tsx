@@ -7,6 +7,7 @@ import Home, {HomeProps} from './Home';
 import Tickets from './Ticket';
 import Contact from './Contact';
 import TicketPurchase from './TicketPurchase';
+import News from './News';
 
 const Stack:any = createStackNavigator();
 function App() {
@@ -35,7 +36,7 @@ function App() {
           options={{
             headerTitleAlign:'center'
           }}/>
-           <Stack.Screen
+          <Stack.Screen
           name='Contact'
           component={Contact}
           options={{
@@ -48,6 +49,13 @@ function App() {
           options={{
             headerTitleAlign:'center',
             headerTitle: 'Purchase Tickets'
+          }}/>
+          <Stack.Screen
+          name='News'
+          component={News}
+          options={{
+            headerTitleAlign:'center',
+            headerTitle: 'Latest News'
           }}/>
         </Stack.Navigator>
       </NavigationContainer>
